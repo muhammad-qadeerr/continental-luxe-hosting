@@ -3,41 +3,41 @@ import { Search, MessageCircle, Settings, Star, MapPin, Shield } from 'lucide-re
 const mainServices = [
   {
     icon: Search,
+    number: '01',
     title: 'Listing Optimization',
     description:
-      'We optimize your Airbnb profile from top to bottom—crafting compelling titles, writing descriptions that convert, and providing professional photo guidance to make your property stand out in search results.',
+      'We craft compelling titles, SEO-optimized descriptions, and provide professional photography guidance to make your property irresistible.',
     includes: [
       'SEO-optimized titles',
-      'Compelling property descriptions',
-      'Photography direction & editing',
-      'Amenity highlighting',
+      'Compelling descriptions',
+      'Photography direction',
       'Competitive analysis',
     ],
     featured: false,
   },
   {
     icon: MessageCircle,
+    number: '02',
     title: 'Guest Communication',
     description:
-      'We handle all guest inquiries, booking questions, and check-in coordination—ensuring fast response times and professional service that leads to 5-star reviews.',
+      'Round-the-clock guest support with fast response times and professional service that consistently drives 5-star reviews.',
     includes: [
       '24/7 inquiry responses',
       'Booking management',
-      'Pre-arrival instructions',
-      'During-stay support',
+      'Pre-arrival coordination',
       'Post-stay follow-up',
     ],
     featured: true,
   },
   {
     icon: Settings,
+    number: '03',
     title: 'Smart Operations',
     description:
-      'From dynamic pricing based on local demand to coordinating cleaning and maintenance—we handle the day-to-day operations so you can focus on growing your portfolio.',
+      'Dynamic pricing, cleaning coordination, and maintenance scheduling—we handle day-to-day operations seamlessly.',
     includes: [
-      'Dynamic pricing strategies',
+      'Dynamic pricing',
       'Cleaning coordination',
-      'Check-in/check-out management',
       'Maintenance scheduling',
       'Performance reporting',
     ],
@@ -49,147 +49,124 @@ const additionalServices = [
   {
     icon: Star,
     title: 'Review Management',
-    description: 'Help getting 5-star reviews',
+    description: 'Strategic approach to 5-star reviews',
   },
   {
     icon: MapPin,
-    title: 'Local Market Insights',
-    description: 'Pakistan-specific strategies',
+    title: 'Local Insights',
+    description: 'Pakistan-specific market strategies',
   },
   {
     icon: Shield,
-    title: 'Account Security',
-    description: 'You keep full control & access',
+    title: 'Full Control',
+    description: 'You retain complete account access',
   },
 ];
 
 export const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-background relative">
-      {/* Background Decoration */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+    <section id="services" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-charcoal/50" />
+      <div className="absolute inset-0 pattern-deco" />
       
-      <div className="container mx-auto px-4">
+      {/* Gradient Orbs */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20 space-y-4">
-          <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase">
-            What We Do
-          </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            How We Help You{' '}
-            <span className="text-gradient-gold">Succeed</span>
+        <div className="text-center mb-20 space-y-6">
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
+              Our Services
+            </span>
+            <div className="w-12 h-px bg-primary" />
+          </div>
+          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
+            How We Elevate{' '}
+            <span className="italic text-gradient-gold">Your Property</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Comprehensive Airbnb management without losing control
+            Comprehensive management that maximizes returns without compromising your control
           </p>
         </div>
 
         {/* Main Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {mainServices.map((service, index) => (
             <div
               key={service.title}
-              className={`relative rounded-2xl p-8 lg:p-10 transition-all duration-500 hover-lift group ${
-                service.featured
-                  ? 'bg-gradient-to-br from-primary to-gold-light text-primary-foreground shadow-gold-lg'
-                  : 'bg-card border border-border/50 hover:border-primary/50'
-              }`}
-              style={{
-                animationDelay: `${index * 0.1}s`,
-              }}
+              className={`relative group ${service.featured ? 'lg:-mt-6 lg:mb-6' : ''}`}
             >
-              {/* Icon */}
               <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
+                className={`relative h-full p-10 lg:p-12 transition-all duration-700 hover-magnetic ${
                   service.featured
-                    ? 'bg-primary-foreground/20'
-                    : 'bg-primary/10'
+                    ? 'bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 shadow-gold'
+                    : 'glass border-gold-glow'
                 }`}
               >
-                <service.icon
-                  className={`w-7 h-7 ${
-                    service.featured ? 'text-primary-foreground' : 'text-primary'
-                  }`}
-                />
-              </div>
-
-              {/* Title */}
-              <h3
-                className={`font-playfair text-2xl font-bold mb-4 ${
-                  service.featured ? 'text-primary-foreground' : 'text-foreground'
-                }`}
-              >
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className={`mb-6 leading-relaxed ${
-                  service.featured
-                    ? 'text-primary-foreground/90'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {service.description}
-              </p>
-
-              {/* Includes List */}
-              <div className="space-y-3">
-                <span
-                  className={`text-sm font-semibold ${
-                    service.featured
-                      ? 'text-primary-foreground'
-                      : 'text-foreground'
-                  }`}
-                >
-                  What's Included:
+                {/* Number */}
+                <span className="absolute top-8 right-8 font-cormorant text-6xl font-bold text-primary/20 group-hover:text-primary/30 transition-colors duration-500">
+                  {service.number}
                 </span>
-                <ul className="space-y-2">
-                  {service.includes.map((item) => (
-                    <li
-                      key={item}
-                      className={`flex items-center gap-3 text-sm ${
-                        service.featured
-                          ? 'text-primary-foreground/80'
-                          : 'text-muted-foreground'
-                      }`}
-                    >
-                      <div
-                        className={`w-1.5 h-1.5 rounded-full ${
-                          service.featured ? 'bg-primary-foreground' : 'bg-primary'
-                        }`}
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
-              {/* Featured Badge */}
-              {service.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-background text-primary text-xs font-bold px-4 py-1 rounded-full border border-primary">
-                  Most Popular
+                {/* Icon */}
+                <div className={`w-16 h-16 flex items-center justify-center mb-8 border ${
+                  service.featured ? 'border-primary bg-primary/10' : 'border-primary/30 bg-primary/5'
+                }`}>
+                  <service.icon className="w-8 h-8 text-primary" />
                 </div>
-              )}
+
+                {/* Title */}
+                <h3 className="font-cormorant text-2xl lg:text-3xl font-semibold text-foreground mb-4">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground mb-8 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Includes List */}
+                <div className="space-y-3">
+                  {service.includes.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 text-sm"
+                    >
+                      <div className="w-1.5 h-1.5 bg-primary" />
+                      <span className="text-foreground/80">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Featured Badge */}
+                {service.featured && (
+                  <div className="absolute -top-4 left-8 bg-primary text-primary-foreground text-xs font-semibold px-4 py-2 uppercase tracking-widest">
+                    Most Popular
+                  </div>
+                )}
+
+                {/* Corner Decoration */}
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/30 group-hover:border-primary transition-colors duration-500" />
+              </div>
             </div>
           ))}
         </div>
 
         {/* Additional Services */}
         <div className="grid md:grid-cols-3 gap-6">
-          {additionalServices.map((service, index) => (
+          {additionalServices.map((service) => (
             <div
               key={service.title}
-              className="flex items-center gap-4 p-6 rounded-xl bg-card/50 border border-border/30 hover:border-primary/30 transition-all duration-300 group"
-              style={{
-                animationDelay: `${0.3 + index * 0.1}s`,
-              }}
+              className="group flex items-center gap-6 p-6 glass border-gold-glow hover:border-primary/50 transition-all duration-500"
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="w-6 h-6 text-primary" />
+              <div className="w-14 h-14 flex items-center justify-center bg-primary/5 border border-primary/20 group-hover:bg-primary/10 transition-colors duration-300">
+                <service.icon className="w-7 h-7 text-primary" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground mb-1">
+                <h4 className="font-cormorant text-xl font-semibold text-foreground mb-1">
                   {service.title}
                 </h4>
                 <p className="text-sm text-muted-foreground">

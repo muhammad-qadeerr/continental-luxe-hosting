@@ -7,8 +7,8 @@ const results = [
     before: { rating: '3.8★', occupancy: '45%' },
     after: { rating: '4.9★', occupancy: '82%' },
     challenge: 'Low visibility, inconsistent bookings',
-    solution: 'Optimized listing, dynamic pricing, improved guest communication',
-    result: '+85% revenue increase in 6 months',
+    result: '+85% revenue increase',
+    duration: '6 months',
   },
   {
     location: 'Lahore',
@@ -16,8 +16,8 @@ const results = [
     before: { rating: '4.0★', occupancy: '52%' },
     after: { rating: '4.8★', occupancy: '78%' },
     challenge: 'Slow response times, pricing gaps',
-    solution: '24/7 guest support, market-based pricing strategy',
-    result: '+65% booking increase in 4 months',
+    result: '+65% booking increase',
+    duration: '4 months',
   },
   {
     location: 'Karachi',
@@ -25,37 +25,37 @@ const results = [
     before: { rating: '4.2★', occupancy: '48%' },
     after: { rating: '4.9★', occupancy: '88%' },
     challenge: 'Poor listing photos, weak description',
-    solution: 'Complete listing overhaul with professional imagery guidance',
-    result: '+92% revenue increase in 5 months',
+    result: '+92% revenue increase',
+    duration: '5 months',
   },
 ];
 
 export const ResultsSection = () => {
   return (
-    <section id="results" className="py-24 lg:py-32 bg-navy-light relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
+    <section id="results" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-charcoal/50" />
+      <div className="absolute inset-0 pattern-deco" />
+      
+      {/* Lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20 space-y-4">
-          <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase">
-            Success Stories
-          </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+        <div className="text-center mb-20 space-y-6">
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
+              Success Stories
+            </span>
+            <div className="w-12 h-px bg-primary" />
+          </div>
+          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
             Real Properties,{' '}
-            <span className="text-gradient-gold">Real Results</span>
+            <span className="italic text-gradient-gold">Real Results</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            See how we've helped hosts across Pakistan
+            Transformations from across Pakistan
           </p>
         </div>
 
@@ -64,67 +64,70 @@ export const ResultsSection = () => {
           {results.map((item, index) => (
             <div
               key={`${item.location}-${index}`}
-              className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-500 hover-lift"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative"
             >
-              {/* Header with Location */}
-              <div className="bg-gradient-to-r from-navy to-navy-light p-6 relative">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-primary">
-                    <MapPin className="w-4 h-4" />
-                    <span className="font-medium">{item.location}</span>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{item.propertyType}</span>
-                </div>
-                
-                {/* Before/After Stats */}
-                <div className="mt-6 flex items-center justify-between">
-                  <div className="text-center">
-                    <span className="block text-xs text-muted-foreground mb-1">Before</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-foreground/70 text-sm">{item.before.rating}</span>
-                      <span className="text-foreground/70 text-sm">{item.before.occupancy}</span>
+              <div className="relative h-full glass border-gold-glow transition-all duration-700 hover-magnetic hover:border-primary/50 overflow-hidden">
+                {/* Top Section */}
+                <div className="p-8 pb-6 border-b border-border/50">
+                  {/* Location & Type */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-2 text-primary">
+                      <MapPin className="w-4 h-4" />
+                      <span className="font-medium text-sm">{item.location}</span>
                     </div>
+                    <span className="text-xs text-muted-foreground uppercase tracking-wider">{item.propertyType}</span>
                   </div>
                   
-                  <TrendingUp className="w-5 h-5 text-primary" />
-                  
-                  <div className="text-center">
-                    <span className="block text-xs text-muted-foreground mb-1">After</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-primary font-bold">{item.after.rating}</span>
-                      <span className="text-primary font-bold">{item.after.occupancy}</span>
+                  {/* Before/After Stats */}
+                  <div className="flex items-center gap-6">
+                    <div className="flex-1">
+                      <span className="block text-xs text-muted-foreground mb-2 uppercase tracking-wider">Before</span>
+                      <div className="flex items-center gap-3 text-foreground/60">
+                        <span className="text-lg">{item.before.rating}</span>
+                        <span className="w-px h-4 bg-border" />
+                        <span className="text-lg">{item.before.occupancy}</span>
+                      </div>
+                    </div>
+                    
+                    <TrendingUp className="w-6 h-6 text-primary flex-shrink-0" />
+                    
+                    <div className="flex-1 text-right">
+                      <span className="block text-xs text-muted-foreground mb-2 uppercase tracking-wider">After</span>
+                      <div className="flex items-center justify-end gap-3 text-primary font-semibold">
+                        <span className="text-lg">{item.after.rating}</span>
+                        <span className="w-px h-4 bg-primary/30" />
+                        <span className="text-lg">{item.after.occupancy}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-4">
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Challenge</span>
-                  <p className="text-foreground text-sm mt-1">{item.challenge}</p>
-                </div>
-                
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Solution</span>
-                  <p className="text-foreground text-sm mt-1">{item.solution}</p>
-                </div>
+                {/* Bottom Section */}
+                <div className="p-8 pt-6 space-y-4">
+                  <div>
+                    <span className="text-xs text-muted-foreground uppercase tracking-wider">Challenge</span>
+                    <p className="text-foreground mt-1">{item.challenge}</p>
+                  </div>
 
-                {/* Result Highlight */}
-                <div className="pt-4 border-t border-border/50">
-                  <div className="flex items-center gap-2">
-                    <Star className="w-4 h-4 text-primary fill-primary" />
-                    <span className="text-primary font-semibold">{item.result}</span>
+                  {/* Result Highlight */}
+                  <div className="pt-4 border-t border-border/30 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Star className="w-5 h-5 text-primary fill-primary" />
+                      <span className="text-primary font-semibold">{item.result}</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">{item.duration}</span>
                   </div>
                 </div>
+
+                {/* Decorative Corner */}
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/20 group-hover:border-primary/50 transition-colors duration-500" />
               </div>
             </div>
           ))}
         </div>
 
         {/* Privacy Note */}
-        <p className="text-center text-muted-foreground text-sm mt-12">
+        <p className="text-center text-muted-foreground text-sm mt-12 italic">
           * Property details anonymized to protect host privacy
         </p>
       </div>

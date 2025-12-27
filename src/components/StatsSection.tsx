@@ -1,56 +1,108 @@
 import { Building, Star, Calendar, Clock } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const stats = [
   {
     icon: Building,
-    number: '50+',
+    number: 50,
+    suffix: '+',
     label: 'Properties Managed',
     featured: false,
   },
   {
     icon: Star,
-    number: '4.8★',
+    number: 4.8,
+    suffix: '★',
     label: 'Average Guest Rating',
     featured: true,
   },
   {
     icon: Calendar,
-    number: '85%',
-    label: 'Average Occupancy Rate',
+    number: 85,
+    suffix: '%',
+    label: 'Average Occupancy',
     featured: false,
   },
   {
     icon: Clock,
-    number: '24/7',
+    number: 24,
+    suffix: '/7',
     label: 'Guest Support',
     featured: false,
   },
 ];
 
+const AnimatedNumber = ({ value, suffix, duration = 2000 }: { value: number; suffix: string; duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let start = 0;
+    const end = value;
+    const increment = end / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Number(start.toFixed(1)));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [isVisible, value, duration]);
+
+  return (
+    <span ref={ref}>
+      {Number.isInteger(value) ? Math.floor(count) : count.toFixed(1)}{suffix}
+    </span>
+  );
+};
+
 export const StatsSection = () => {
   return (
-    <section className="py-20 bg-navy-light relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(45deg, transparent 45%, hsl(var(--primary)) 45%, hsl(var(--primary)) 55%, transparent 55%)`,
-            backgroundSize: '30px 30px',
-          }}
-        />
-      </div>
+    <section className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pattern-lines" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Trusted By Property Owners{' '}
-            <span className="text-gradient-gold">Across Pakistan</span>
+        <div className="text-center mb-20 space-y-6">
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
+              Our Impact
+            </span>
+            <div className="w-12 h-px bg-primary" />
+          </div>
+          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
+            Trusted Across{' '}
+            <span className="italic text-gradient-gold">Pakistan</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real results from real partnerships
-          </p>
         </div>
 
         {/* Stats Grid */}
@@ -58,54 +110,55 @@ export const StatsSection = () => {
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className={`relative group rounded-2xl p-8 transition-all duration-500 hover-lift ${
-                stat.featured
-                  ? 'bg-gradient-to-br from-primary to-gold-light text-primary-foreground shadow-gold'
-                  : 'bg-card border border-border/50 hover:border-primary/50'
-              }`}
-              style={{
-                animationDelay: `${index * 0.1}s`,
-              }}
+              className={`relative group ${stat.featured ? 'lg:-mt-4 lg:mb-4' : ''}`}
             >
-              {/* Icon */}
               <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                className={`relative h-full p-8 lg:p-10 transition-all duration-700 hover-magnetic ${
                   stat.featured
-                    ? 'bg-primary-foreground/20'
-                    : 'bg-primary/10'
+                    ? 'bg-gradient-to-br from-primary via-gold to-gold-light text-primary-foreground shadow-gold-intense'
+                    : 'glass border-gold-glow hover:border-primary/50'
                 }`}
               >
-                <stat.icon
-                  className={`w-6 h-6 ${
-                    stat.featured ? 'text-primary-foreground' : 'text-primary'
+                {/* Icon */}
+                <div
+                  className={`w-14 h-14 flex items-center justify-center mb-6 ${
+                    stat.featured
+                      ? 'bg-primary-foreground/10'
+                      : 'bg-primary/10 border border-primary/20'
                   }`}
-                />
+                >
+                  <stat.icon
+                    className={`w-7 h-7 ${
+                      stat.featured ? 'text-primary-foreground' : 'text-primary'
+                    }`}
+                  />
+                </div>
+
+                {/* Number */}
+                <span
+                  className={`block font-cormorant text-5xl lg:text-6xl font-bold mb-3 ${
+                    stat.featured ? 'text-primary-foreground' : 'text-foreground'
+                  }`}
+                >
+                  <AnimatedNumber value={stat.number} suffix={stat.suffix} />
+                </span>
+
+                {/* Label */}
+                <span
+                  className={`text-sm font-medium tracking-wide ${
+                    stat.featured
+                      ? 'text-primary-foreground/80'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {stat.label}
+                </span>
+
+                {/* Decorative Corner */}
+                {!stat.featured && (
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-primary/20 group-hover:border-primary/50 transition-colors duration-500" />
+                )}
               </div>
-
-              {/* Number */}
-              <span
-                className={`block font-playfair text-4xl lg:text-5xl font-bold mb-2 ${
-                  stat.featured ? 'text-primary-foreground' : 'text-foreground'
-                }`}
-              >
-                {stat.number}
-              </span>
-
-              {/* Label */}
-              <span
-                className={`text-sm font-medium ${
-                  stat.featured
-                    ? 'text-primary-foreground/80'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {stat.label}
-              </span>
-
-              {/* Hover Glow Effect */}
-              {!stat.featured && (
-                <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              )}
             </div>
           ))}
         </div>
