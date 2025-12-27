@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
-import founderImg from "@/assets/saad.png";
+import founderImg from "@/assets/Saad.png";
 import coFounderImg from "@/assets/qadeer.jpeg";
 
 const teamMembers = [
