@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#approach' },
-  { label: 'Results', href: '#results' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#approach" },
+  { label: "Results", href: "#results" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const Header = () => {
@@ -19,14 +20,14 @@ export const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMobileMenuOpen(false);
   };
@@ -35,8 +36,8 @@ export const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-2xl border-b border-border/30 py-4'
-          : 'bg-transparent py-6'
+          ? "bg-background/80 backdrop-blur-2xl border-b border-border/30 py-4"
+          : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
@@ -45,22 +46,21 @@ export const Header = () => {
           href="#home"
           onClick={(e) => {
             e.preventDefault();
-            scrollToSection('#home');
+            scrollToSection("#home");
           }}
           className="flex items-center gap-3 group"
         >
-          {/* Luxury Monogram */}
-          <div className="relative">
-            <div className="w-12 h-12 border-2 border-primary/60 flex items-center justify-center group-hover:border-primary transition-colors duration-500">
-              <span className="text-primary font-cormorant font-bold text-xl tracking-tight">CL</span>
-            </div>
-            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-primary" />
-          </div>
+          {/* Inline responsive logo (no external box) */}
+          <img
+            src={logo}
+            alt="Continental Luxe Hosting logo"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
+          />
           <div className="hidden sm:block">
-            <span className="font-cormorant text-xl font-semibold text-foreground tracking-wide">
+            <span className="font-cormorant text-lg sm:text-xl font-semibold text-foreground tracking-wide">
               Continental
             </span>
-            <span className="block text-xs text-primary font-outfit tracking-[0.3em] uppercase">
+            <span className="block text-[10px] sm:text-xs text-primary font-outfit tracking-[0.3em] uppercase">
               Luxe Hosting
             </span>
           </div>
@@ -89,7 +89,7 @@ export const Header = () => {
           <Button
             variant="gold-outline"
             size="default"
-            onClick={() => scrollToSection('#contact')}
+            onClick={() => scrollToSection("#contact")}
             className="uppercase tracking-widest text-xs"
           >
             Free Review
@@ -109,7 +109,7 @@ export const Header = () => {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed inset-0 top-[72px] bg-background/98 backdrop-blur-2xl transition-all duration-500 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <nav className="container mx-auto px-6 py-12 flex flex-col gap-8">
@@ -131,8 +131,8 @@ export const Header = () => {
             variant="gold"
             size="lg"
             className="mt-4 animate-fade-up uppercase tracking-widest"
-            style={{ animationDelay: '0.3s' }}
-            onClick={() => scrollToSection('#contact')}
+            style={{ animationDelay: "0.3s" }}
+            onClick={() => scrollToSection("#contact")}
           >
             Get Free Review
           </Button>
