@@ -12,7 +12,7 @@ const teamMembers = [
   },
   {
     name: 'M. Qadeer',
-    role: 'Co Founder & CTO',
+    role: 'Co-Founder & CTO',
     image: coFounderImg,
     bio: 'With years of experience in the global short-term rental market, ensuring seamless operations and exceptional guest experiences across all properties we manage.',
   },
