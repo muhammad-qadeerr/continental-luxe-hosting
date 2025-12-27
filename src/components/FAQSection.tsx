@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { MessageCircle } from 'lucide-react';
 
 const faqs = [
   {
@@ -33,11 +34,6 @@ const faqs = [
       'Most hosts see noticeable improvements within 30-45 days—better search visibility, increased inquiries, and higher booking rates. Long-term growth continues as we optimize based on performance data.',
   },
   {
-    question: 'What if I already have bookings scheduled?',
-    answer:
-      'No problem. We seamlessly integrate with your existing calendar and handle upcoming reservations without disruption.',
-  },
-  {
     question: 'Can I still manage some aspects myself?',
     answer:
       "Absolutely. We're flexible and can adjust our involvement based on what you prefer to handle versus what you'd like us to manage.",
@@ -53,22 +49,29 @@ export const FAQSection = () => {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+    <section className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left - FAQs */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             {/* Header */}
-            <div className="space-y-4">
-              <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase">
-                FAQs
-              </span>
-              <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-                Frequently Asked{' '}
-                <span className="text-gradient-gold">Questions</span>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-px bg-primary" />
+                <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
+                  FAQs
+                </span>
+              </div>
+              <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
+                Common{' '}
+                <span className="italic text-gradient-gold">Questions</span>
               </h2>
             </div>
 
@@ -78,12 +81,12 @@ export const FAQSection = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden data-[state=open]:border-primary/30"
+                  className="glass border-gold-glow px-6 overflow-hidden data-[state=open]:border-primary/40 transition-colors duration-300"
                 >
-                  <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-5 font-semibold">
+                  <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-6 font-cormorant text-lg font-semibold">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -93,53 +96,61 @@ export const FAQSection = () => {
 
           {/* Right - CTA Card */}
           <div className="lg:sticky lg:top-32 h-fit">
-            <div className="bg-gradient-to-br from-card to-navy-light rounded-2xl p-10 border border-border/50 space-y-8">
-              {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-gold-light flex items-center justify-center shadow-gold">
-                <span className="text-primary-foreground text-3xl">?</span>
-              </div>
+            <div className="relative">
+              {/* Decorative Frame */}
+              <div className="absolute -inset-3 border border-primary/10" />
+              
+              <div className="relative glass border-gold-glow p-10 lg:p-12 space-y-8">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-primary flex items-center justify-center">
+                  <MessageCircle className="w-8 h-8 text-primary-foreground" />
+                </div>
 
-              {/* Content */}
-              <div className="space-y-4">
-                <h3 className="font-playfair text-2xl font-bold text-foreground">
-                  Still have questions?
-                </h3>
-                <p className="text-muted-foreground">
-                  We're happy to discuss your specific situation and answer any questions you might have about our services.
-                </p>
-              </div>
+                {/* Content */}
+                <div className="space-y-4">
+                  <h3 className="font-cormorant text-3xl font-semibold text-foreground">
+                    Still have questions?
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    We're happy to discuss your specific situation and answer any questions about our services.
+                  </p>
+                </div>
 
-              {/* CTAs */}
-              <div className="space-y-4">
-                <Button
-                  variant="gold"
-                  size="lg"
-                  className="w-full"
-                  onClick={() => scrollToSection('#contact')}
-                >
-                  Schedule a Call
-                </Button>
-                <Button
-                  variant="gold-outline"
-                  size="lg"
-                  className="w-full"
-                  asChild
-                >
-                  <a
-                    href="https://wa.me/923001234567"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                {/* CTAs */}
+                <div className="space-y-4">
+                  <Button
+                    variant="luxury"
+                    size="lg"
+                    className="w-full"
+                    onClick={() => scrollToSection('#contact')}
                   >
-                    Chat on WhatsApp
-                  </a>
-                </Button>
-              </div>
+                    <span className="uppercase tracking-widest text-sm">Schedule a Call</span>
+                  </Button>
+                  <Button
+                    variant="luxury-outline"
+                    size="lg"
+                    className="w-full"
+                    asChild
+                  >
+                    <a
+                      href="https://wa.me/923001234567"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="uppercase tracking-widest text-sm">WhatsApp Chat</span>
+                    </a>
+                  </Button>
+                </div>
 
-              {/* Available Hours */}
-              <div className="pt-6 border-t border-border/50">
-                <span className="text-sm text-muted-foreground">
-                  Available: Monday - Saturday, 9 AM - 8 PM PKT
-                </span>
+                {/* Available Hours */}
+                <div className="pt-6 border-t border-border/50 text-center">
+                  <span className="text-sm text-muted-foreground">
+                    Monday - Saturday, 9 AM - 8 PM PKT
+                  </span>
+                </div>
+
+                {/* Corner Decoration */}
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/30" />
               </div>
             </div>
           </div>

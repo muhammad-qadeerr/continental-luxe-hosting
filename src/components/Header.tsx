@@ -5,9 +5,9 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
-  { label: 'Our Approach', href: '#approach' },
+  { label: 'Process', href: '#approach' },
   { label: 'Results', href: '#results' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -33,13 +33,13 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border/50 py-4'
+          ? 'bg-background/80 backdrop-blur-2xl border-b border-border/30 py-4'
           : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#home"
@@ -49,16 +49,25 @@ export const Header = () => {
           }}
           className="flex items-center gap-3 group"
         >
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-gold-light flex items-center justify-center">
-            <span className="text-primary-foreground font-playfair font-bold text-lg">C</span>
+          {/* Luxury Monogram */}
+          <div className="relative">
+            <div className="w-12 h-12 border-2 border-primary/60 flex items-center justify-center group-hover:border-primary transition-colors duration-500">
+              <span className="text-primary font-cormorant font-bold text-xl tracking-tight">CL</span>
+            </div>
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-primary" />
           </div>
-          <span className="font-playfair text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-            Continental <span className="text-primary">Luxe</span>
-          </span>
+          <div className="hidden sm:block">
+            <span className="font-cormorant text-xl font-semibold text-foreground tracking-wide">
+              Continental
+            </span>
+            <span className="block text-xs text-primary font-outfit tracking-[0.3em] uppercase">
+              Luxe Hosting
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -67,9 +76,10 @@ export const Header = () => {
                 e.preventDefault();
                 scrollToSection(item.href);
               }}
-              className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium underline-animation"
+              className="relative text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium tracking-wide group"
             >
               {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -77,11 +87,12 @@ export const Header = () => {
         {/* CTA Button */}
         <div className="hidden lg:block">
           <Button
-            variant="gold"
+            variant="gold-outline"
             size="default"
             onClick={() => scrollToSection('#contact')}
+            className="uppercase tracking-widest text-xs"
           >
-            Free Listing Review
+            Free Review
           </Button>
         </div>
 
@@ -97,11 +108,11 @@ export const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-[72px] bg-background/98 backdrop-blur-md transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 top-[72px] bg-background/98 backdrop-blur-2xl transition-all duration-500 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
-        <nav className="container mx-auto px-4 py-8 flex flex-col gap-6">
+        <nav className="container mx-auto px-6 py-12 flex flex-col gap-8">
           {navItems.map((item, index) => (
             <a
               key={item.label}
@@ -110,7 +121,7 @@ export const Header = () => {
                 e.preventDefault();
                 scrollToSection(item.href);
               }}
-              className="text-foreground hover:text-primary transition-colors text-lg font-medium py-2 border-b border-border/30 animate-fade-in-up"
+              className="text-foreground hover:text-primary transition-colors text-2xl font-cormorant font-medium py-2 border-b border-border/20 animate-fade-up"
               style={{ animationDelay: `${index * 0.05}s` }}
             >
               {item.label}
@@ -119,11 +130,11 @@ export const Header = () => {
           <Button
             variant="gold"
             size="lg"
-            className="mt-4 animate-fade-in-up"
+            className="mt-4 animate-fade-up uppercase tracking-widest"
             style={{ animationDelay: '0.3s' }}
             onClick={() => scrollToSection('#contact')}
           >
-            Free Listing Review
+            Get Free Review
           </Button>
         </nav>
       </div>

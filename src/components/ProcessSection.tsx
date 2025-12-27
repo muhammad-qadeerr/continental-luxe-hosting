@@ -12,23 +12,23 @@ const steps = [
   {
     number: '02',
     icon: Handshake,
-    title: 'Custom Strategy Session',
+    title: 'Strategy Session',
     description:
-      'We discuss your goals, review our suggestions, and create a tailored management plan that works for your specific property and situation.',
+      'We discuss your goals, review our suggestions, and create a tailored management plan for your specific property.',
   },
   {
     number: '03',
     icon: Puzzle,
     title: 'Seamless Integration',
     description:
-      'We implement optimizations and begin managing guest communications—you remain the primary account holder with full access and control at all times.',
+      'We implement optimizations and begin managing communications—you remain the primary account holder at all times.',
   },
   {
     number: '04',
     icon: TrendingUp,
-    title: 'Ongoing Support & Growth',
+    title: 'Ongoing Growth',
     description:
-      'We continuously monitor performance, adjust strategies based on results, and provide monthly reports on bookings, revenue, and guest satisfaction.',
+      'We continuously monitor, adjust strategies, and provide monthly reports on performance and revenue.',
   },
 ];
 
@@ -41,94 +41,91 @@ export const ProcessSection = () => {
   };
 
   return (
-    <section id="approach" className="py-24 lg:py-32 bg-navy-light relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+    <section id="approach" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
       </div>
+      
+      {/* Decorative Lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20 space-y-4">
-          <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase">
-            Our Approach
-          </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+        <div className="text-center mb-20 space-y-6">
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
+              Our Process
+            </span>
+            <div className="w-12 h-px bg-primary" />
+          </div>
+          <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
             Simple,{' '}
-            <span className="text-gradient-gold">Transparent</span> Process
+            <span className="italic text-gradient-gold">Transparent</span> Approach
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg">
             Getting started takes less than 24 hours
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Line */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent lg:-translate-x-px" />
-
-          {/* Steps */}
-          <div className="space-y-12 lg:space-y-16">
+        {/* Process Steps */}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className={`relative flex items-start gap-8 lg:gap-16 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                }`}
+                className="relative group"
               >
-                {/* Number Badge */}
-                <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 z-10">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-gold-light flex items-center justify-center shadow-gold">
-                    <span className="text-primary-foreground font-bold text-lg font-playfair">
-                      {step.number}
-                    </span>
+                <div className="relative glass border-gold-glow p-10 transition-all duration-700 hover-magnetic hover:border-primary/50">
+                  {/* Large Number */}
+                  <span className="absolute top-6 right-8 font-cormorant text-8xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors duration-500 select-none">
+                    {step.number}
+                  </span>
+
+                  {/* Icon */}
+                  <div className="relative w-16 h-16 flex items-center justify-center bg-primary/5 border border-primary/30 mb-6 group-hover:bg-primary/10 transition-colors duration-300">
+                    <step.icon className="w-8 h-8 text-primary" />
+                    {/* Gold accent */}
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-primary" />
                   </div>
+
+                  {/* Content */}
+                  <h3 className="font-cormorant text-2xl font-semibold text-foreground mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  {/* Connecting Line (for first row) */}
+                  {index === 0 && (
+                    <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-primary/50 to-transparent" />
+                  )}
+                  {index === 2 && (
+                    <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-primary/50 to-transparent" />
+                  )}
                 </div>
-
-                {/* Content Card */}
-                <div
-                  className={`ml-24 lg:ml-0 lg:w-[calc(50%-4rem)] ${
-                    index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'
-                  }`}
-                >
-                  <div className="bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift group">
-                    {/* Icon */}
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <step.icon className="w-6 h-6 text-primary" />
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="font-playfair text-xl lg:text-2xl font-bold text-foreground mb-3">
-                      {step.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Empty space for alternating layout */}
-                <div className="hidden lg:block lg:w-[calc(50%-4rem)]" />
               </div>
             ))}
+          </div>
+
+          {/* Vertical connecting lines between rows */}
+          <div className="hidden md:flex justify-center -my-4 relative z-10">
+            <div className="flex gap-[calc(50%-2rem)]">
+              <div className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent" />
+            </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16 lg:mt-20">
+        <div className="text-center mt-16">
           <Button
-            variant="gold"
+            variant="luxury"
             size="lg"
             onClick={() => scrollToSection('#contact')}
           >
-            Start Your Free Review
+            <span className="uppercase tracking-widest text-sm">Start Your Free Review</span>
           </Button>
         </div>
       </div>

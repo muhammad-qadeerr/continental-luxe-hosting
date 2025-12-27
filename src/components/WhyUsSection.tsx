@@ -5,55 +5,63 @@ const differentiators = [
     icon: Shield,
     title: 'You Stay In Control',
     description:
-      'Keep full access to your Airbnb account and payouts. We never take over—we support.',
+      'Full access to your account and payouts. We support—never take over.',
   },
   {
     icon: MapPin,
     title: 'Local Market Expertise',
     description:
-      "We understand Pakistan's Airbnb market, seasonal patterns, and what guests here actually want.",
+      "Deep understanding of Pakistan's Airbnb market and guest expectations.",
   },
   {
     icon: Handshake,
-    title: 'No Unrealistic Promises',
+    title: 'No False Promises',
     description:
-      'We focus on practical, proven strategies—not overnight success myths. Real results take partnership.',
+      'Practical, proven strategies that deliver real results over time.',
   },
   {
     icon: MessageCircle,
     title: 'Transparent Communication',
     description:
-      'Monthly reports, open communication channels, and always available for questions.',
+      'Monthly reports and always available for your questions.',
   },
   {
     icon: Trophy,
     title: 'Proven Track Record',
     description:
-      'Currently managing 50+ successful properties with consistently high ratings and occupancy.',
+      '50+ successful properties with consistently high ratings.',
   },
 ];
 
 export const WhyUsSection = () => {
   return (
-    <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+    <section className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-charcoal/30" />
+      <div className="absolute inset-0 pattern-lines" />
+      
+      {/* Gradient Orbs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px]" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <span className="inline-block text-primary text-sm font-semibold tracking-wider uppercase">
-                Why Choose Us
-              </span>
-              <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-                Why Work With{' '}
-                <span className="text-gradient-gold">Continental Luxe?</span>
+          <div className="space-y-12">
+            {/* Header */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-px bg-primary" />
+                <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
+                  Why Choose Us
+                </span>
+              </div>
+              <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight">
+                Why{' '}
+                <span className="italic text-gradient-gold">Continental Luxe?</span>
               </h2>
               <p className="text-muted-foreground text-lg">
-                We're not like typical property managers. Here's what makes us different:
+                We're not typical property managers. Here's what sets us apart:
               </p>
             </div>
 
@@ -62,14 +70,13 @@ export const WhyUsSection = () => {
               {differentiators.map((item, index) => (
                 <div
                   key={item.title}
-                  className="flex gap-5 group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="group flex gap-6 p-6 -mx-6 hover:bg-primary/5 rounded-lg transition-all duration-500"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 flex items-center justify-center bg-primary/5 border border-primary/20 flex-shrink-0 group-hover:bg-primary/10 group-hover:border-primary/40 transition-all duration-300">
+                    <item.icon className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground text-lg mb-1">
+                    <h4 className="font-cormorant text-xl font-semibold text-foreground mb-2">
                       {item.title}
                     </h4>
                     <p className="text-muted-foreground">
@@ -81,60 +88,64 @@ export const WhyUsSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Visual */}
+          {/* Right Content - Quote Card */}
           <div className="relative">
+            {/* Decorative Frame */}
+            <div className="absolute -inset-4 border border-primary/10" />
+            <div className="absolute -inset-8 border border-primary/5" />
+            
             {/* Quote Card */}
-            <div className="relative bg-card rounded-2xl p-10 lg:p-12 border border-border/50 shadow-card">
+            <div className="relative glass border-gold-glow p-12 lg:p-16">
               {/* Quote Icon */}
-              <div className="absolute -top-6 left-10 w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-gold-light flex items-center justify-center shadow-gold">
-                <span className="text-primary-foreground text-3xl font-playfair">"</span>
+              <div className="absolute -top-6 left-12 w-12 h-12 bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground text-3xl font-cormorant">"</span>
               </div>
 
               {/* Quote Text */}
-              <blockquote className="font-playfair text-2xl lg:text-3xl text-foreground leading-relaxed mb-8 pt-4">
+              <blockquote className="font-cormorant text-3xl lg:text-4xl text-foreground leading-relaxed mb-10 pt-4">
                 We don't just manage properties—we build{' '}
-                <span className="text-gradient-gold">long-term partnerships.</span>
+                <span className="italic text-gradient-gold">long-term partnerships.</span>
               </blockquote>
 
               {/* Author */}
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-gold-light flex items-center justify-center">
+                  <span className="text-primary-foreground font-cormorant font-bold text-2xl">Q</span>
+                </div>
+                <div>
+                  <span className="block font-cormorant text-xl font-semibold text-foreground">Qadeer</span>
+                  <span className="text-sm text-muted-foreground">Founder, Continental Luxe</span>
+                </div>
+              </div>
+
+              {/* Decorative Corner */}
+              <div className="absolute bottom-0 right-0 w-16 h-16">
+                <div className="absolute bottom-4 right-4 w-8 h-px bg-primary/40" />
+                <div className="absolute bottom-4 right-4 w-px h-8 bg-primary/40" />
+              </div>
+            </div>
+
+            {/* Floating Stats */}
+            <div className="absolute -bottom-8 -left-8 glass p-5 animate-float shadow-gold hidden lg:block">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-gold-light flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xl font-playfair">Q</span>
+                <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <span className="block font-semibold text-foreground">Qadeer</span>
-                  <span className="text-sm text-muted-foreground">Founder, Continental Luxe Hosting</span>
-                </div>
-              </div>
-
-              {/* Decorative Lines */}
-              <div className="absolute top-0 right-0 w-24 h-24">
-                <div className="absolute top-8 right-8 w-12 h-px bg-primary/30" />
-                <div className="absolute top-8 right-8 w-px h-12 bg-primary/30" />
-              </div>
-            </div>
-
-            {/* Stats Cards */}
-            <div className="absolute -bottom-8 -left-8 bg-card rounded-xl p-5 border border-border/50 shadow-card animate-float">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <Trophy className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <span className="block font-bold text-foreground font-playfair text-lg">50+</span>
-                  <span className="text-xs text-muted-foreground">Properties</span>
+                  <span className="block font-cormorant text-2xl font-bold text-foreground">50+</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Properties</span>
                 </div>
               </div>
             </div>
 
-            <div className="absolute -top-8 -right-8 bg-card rounded-xl p-5 border border-border/50 shadow-card animate-float" style={{ animationDelay: '1s' }}>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-primary" />
+            <div className="absolute -top-8 -right-8 glass p-5 animate-float hidden lg:block" style={{ animationDelay: '2s' }}>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <span className="block font-bold text-foreground font-playfair text-lg">100%</span>
-                  <span className="text-xs text-muted-foreground">Control Retained</span>
+                  <span className="block font-cormorant text-2xl font-bold text-foreground">100%</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Control</span>
                 </div>
               </div>
             </div>
