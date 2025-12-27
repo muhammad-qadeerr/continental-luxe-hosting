@@ -6,7 +6,7 @@ const valuePoints = [
   'Higher Occupancy Rates',
   'Better Guest Reviews',
   'Hassle-Free Management',
-  'Local Market Expertise',
+  'Global Market Expertise',
 ];
 
 export const HeroSection = () => {
@@ -20,7 +20,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 lg:pt-32"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -44,7 +44,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-32 lg:py-0 relative z-10">
+      <div className="container mx-auto px-6 pb-16 lg:pb-0 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left Content */}
           <div className="space-y-10">
@@ -52,7 +52,7 @@ export const HeroSection = () => {
             <div className="animate-fade-up flex items-center gap-3">
               <div className="w-12 h-px bg-primary" />
               <span className="text-primary text-sm font-outfit tracking-[0.3em] uppercase">
-                Pakistan's Premier Partner
+                Premier Global Partner
               </span>
             </div>
 

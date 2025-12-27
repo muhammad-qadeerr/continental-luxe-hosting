@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'How do you charge for your services?',
     answer:
-      "We work on a performance-based model—typically a percentage of your monthly bookings. We'll discuss the exact structure during our strategy session based on your property and goals.",
+      "We can work on two models, whichever suits you better: 1. Revenue-based model – We take an agreed percentage from the monthly Airbnb earnings. 2. Flat fee model – PKR 20,000 per month covering complete management end-to-end. Both options include full listing management, guest communication, pricing coordination, and operational support. You can choose the model you're more comfortable with and we'll proceed accordingly.",
   },
   {
     question: "What if I'm not happy with the results?",
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: 'Do you work with properties outside major cities?',
     answer:
-      "Yes! We manage properties across Pakistan—from Islamabad and Lahore to smaller cities and tourist destinations. Local knowledge is one of our strengths.",
+      "Yes! We manage properties globally—from major cities to smaller towns and tourist destinations. Local market knowledge is one of our core strengths.",
   },
   {
     question: 'How quickly will I see improvements?',
@@ -133,7 +133,7 @@ export const FAQSection = () => {
                     asChild
                   >
                     <a
-                      href="https://wa.me/923001234567"
+                      href="https://wa.me/923035776759"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -145,7 +145,7 @@ export const FAQSection = () => {
                 {/* Available Hours */}
                 <div className="pt-6 border-t border-border/50 text-center">
                   <span className="text-sm text-muted-foreground">
-                    Monday - Saturday, 9 AM - 8 PM PKT
+                    Monday - Saturday, 9 AM - 8 PM
                   </span>
                 </div>
 

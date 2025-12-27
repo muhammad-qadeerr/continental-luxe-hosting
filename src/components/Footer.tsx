@@ -23,7 +23,7 @@ export const Footer = () => {
               </div>
               <span className="font-cormorant text-xl font-semibold text-foreground">Continental Luxe</span>
             </div>
-            <p className="text-muted-foreground text-sm">Professional Airbnb Management in Pakistan</p>
+            <p className="text-muted-foreground text-sm">Professional Airbnb Management Worldwide</p>
             <div className="flex gap-4">
               {[Linkedin, Instagram].map((Icon, i) => (
                 <a key={i} href="#" className="w-10 h-10 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">

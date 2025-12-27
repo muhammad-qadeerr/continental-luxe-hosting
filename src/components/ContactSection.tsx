@@ -9,10 +9,10 @@ import { Mail, Phone, MessageCircle, Clock, ArrowRight, CheckCircle } from 'luci
 import { useToast } from '@/hooks/use-toast';
 
 const locations = [
-  { value: 'islamabad', label: 'Islamabad' },
-  { value: 'lahore', label: 'Lahore' },
-  { value: 'karachi', label: 'Karachi' },
-  { value: 'other', label: 'Other City' },
+  { value: 'north-america', label: 'North America' },
+  { value: 'europe', label: 'Europe' },
+  { value: 'asia', label: 'Asia' },
+  { value: 'other', label: 'Other Region' },
 ];
 
 export const ContactSection = () => {
@@ -77,20 +77,20 @@ export const ContactSection = () => {
               </div>
               <div className="space-y-2">
                 <Label className="text-foreground">Phone <span className="text-primary">*</span></Label>
-                <Input type="tel" placeholder="+92 300 1234567" value={formData.phone} onChange={(e) => handleChange('phone', e.target.value)} required className="bg-background/50 border-border focus:border-primary" />
+                <Input type="tel" placeholder="+1 234 567 8900" value={formData.phone} onChange={(e) => handleChange('phone', e.target.value)} required className="bg-background/50 border-border focus:border-primary" />
               </div>
             </div>
             <div className="space-y-2">
               <Label className="text-foreground">Email <span className="text-primary">*</span></Label>
               <Input type="email" placeholder="you@example.com" value={formData.email} onChange={(e) => handleChange('email', e.target.value)} required className="bg-background/50 border-border focus:border-primary" />
             </div>
-            <div className="space-y-2">
-              <Label className="text-foreground">Location <span className="text-primary">*</span></Label>
-              <Select value={formData.location} onValueChange={(v) => handleChange('location', v)}>
-                <SelectTrigger className="bg-background/50 border-border"><SelectValue placeholder="Select city" /></SelectTrigger>
-                <SelectContent className="bg-card border-border">{locations.map((l) => <SelectItem key={l.value} value={l.value}>{l.label}</SelectItem>)}</SelectContent>
-              </Select>
-            </div>
+              <div className="space-y-2">
+                <Label className="text-foreground">Region <span className="text-primary">*</span></Label>
+                <Select value={formData.location} onValueChange={(v) => handleChange('location', v)}>
+                  <SelectTrigger className="bg-background/50 border-border"><SelectValue placeholder="Select region" /></SelectTrigger>
+                  <SelectContent className="bg-card border-border">{locations.map((l) => <SelectItem key={l.value} value={l.value}>{l.label}</SelectItem>)}</SelectContent>
+                </Select>
+              </div>
             <div className="space-y-2">
               <Label className="text-foreground">Biggest Challenge <span className="text-primary">*</span></Label>
               <Textarea placeholder="Low bookings, visibility issues, etc." value={formData.challenge} onChange={(e) => handleChange('challenge', e.target.value)} required rows={3} className="bg-background/50 border-border focus:border-primary resize-none" />
@@ -113,8 +113,8 @@ export const ContactSection = () => {
               <h3 className="font-cormorant text-2xl font-semibold text-foreground">Contact Directly</h3>
               <div className="space-y-6">
                 {[{ icon: Mail, label: 'Email', value: 'qadeer@continentalluxehosting.com', href: 'mailto:qadeer@continentalluxehosting.com' },
-                  { icon: Phone, label: 'Phone', value: '+92 300 123 4567', href: 'tel:+923001234567' },
-                  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat Now', href: 'https://wa.me/923001234567', isButton: true },
+                  { icon: Phone, label: 'Phone', value: '+1 234 567 8900', href: 'tel:+12345678900' },
+                  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat Now', href: 'https://wa.me/923035776759', isButton: true },
                   { icon: Clock, label: 'Hours', value: 'Mon-Sat, 9AM-8PM' }
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4">

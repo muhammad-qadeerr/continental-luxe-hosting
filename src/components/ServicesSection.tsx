@@ -2,22 +2,8 @@ import { Search, MessageCircle, Settings, Star, MapPin, Shield } from 'lucide-re
 
 const mainServices = [
   {
-    icon: Search,
-    number: '01',
-    title: 'Listing Optimization',
-    description:
-      'We craft compelling titles, SEO-optimized descriptions, and provide professional photography guidance to make your property irresistible.',
-    includes: [
-      'SEO-optimized titles',
-      'Compelling descriptions',
-      'Photography direction',
-      'Competitive analysis',
-    ],
-    featured: false,
-  },
-  {
     icon: MessageCircle,
-    number: '02',
+    number: '01',
     title: 'Guest Communication',
     description:
       'Round-the-clock guest support with fast response times and professional service that consistently drives 5-star reviews.',
@@ -26,6 +12,20 @@ const mainServices = [
       'Booking management',
       'Pre-arrival coordination',
       'Post-stay follow-up',
+    ],
+    featured: false,
+  },
+  {
+    icon: Search,
+    number: '02',
+    title: 'Listing Optimization',
+    description:
+      'We craft compelling titles, SEO-optimized descriptions, and provide professional photography guidance to make your property irresistible.',
+    includes: [
+      'SEO-optimized titles',
+      'Compelling descriptions',
+      'Photography direction',
+      'Competitive analysis',
     ],
     featured: true,
   },

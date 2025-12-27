@@ -100,8 +100,8 @@ export const StatsSection = () => {
             <div className="w-12 h-px bg-primary" />
           </div>
           <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
-            Trusted Across{' '}
-            <span className="italic text-gradient-gold">Pakistan</span>
+            Trusted{' '}
+            <span className="italic text-gradient-gold">Globally</span>
           </h2>
         </div>
 
