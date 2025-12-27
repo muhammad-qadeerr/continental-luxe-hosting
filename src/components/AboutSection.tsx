@@ -1,20 +1,20 @@
-import { Button } from '@/components/ui/button';
-import { Phone } from 'lucide-react';
-import founderImg from '@/assets/saad.png';
-import coFounderImg from '@/assets/qadeer.jpeg';
+import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
+import founderImg from "@/assets/saad.png";
+import coFounderImg from "@/assets/qadeer.jpeg";
 
 const teamMembers = [
   {
-    name: 'Saad',
-    role: 'Founder & CEO',
+    name: "Saad",
+    role: "Founder & CEO",
     image: founderImg,
-    bio: 'Started Continental Luxe Hosting after seeing too many great properties struggle with visibility—not because hosts weren\'t capable, but because Airbnb success requires constant attention most people don\'t have time for.',
+    bio: "Started Continental Luxe Hosting after seeing too many great properties struggle with visibility—not because hosts weren't capable, but because Airbnb success requires constant attention most people don't have time for.",
   },
   {
-    name: 'M. Qadeer',
-    role: 'Co-Founder & CTO',
+    name: "M. Qadeer",
+    role: "Co-Founder & CTO",
     image: coFounderImg,
-    bio: 'With years of experience in the global short-term rental market, ensuring seamless operations and exceptional guest experiences across all properties we manage.',
+    bio: "With years of experience in the global short-term rental market, ensuring seamless technical operations and exceptional guest experiences across all properties we manage.",
   },
 ];
 
@@ -22,7 +22,7 @@ export const AboutSection = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -42,7 +42,7 @@ export const AboutSection = () => {
             <div className="w-12 h-px bg-primary" />
           </div>
           <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
-            The People Behind{' '}
+            The People Behind{" "}
             <span className="italic text-gradient-gold">Continental Luxe</span>
           </h2>
         </div>
@@ -79,15 +79,17 @@ export const AboutSection = () => {
                       {member.bio}
                     </p>
                   </div>
-                  
+
                   <Button
                     variant="luxury"
                     size="default"
                     className="w-full"
-                    onClick={() => scrollToSection('#contact')}
+                    onClick={() => scrollToSection("#contact")}
                   >
                     <Phone className="w-4 h-4 mr-2" />
-                    <span className="uppercase tracking-widest text-xs">Get in Touch</span>
+                    <span className="uppercase tracking-widest text-xs">
+                      Get in Touch
+                    </span>
                   </Button>
                 </div>
               </div>
