@@ -3,18 +3,18 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react';
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: 'Do I lose control of my Airbnb account?',
+    question: "Do I lose control of my Airbnb account?",
     answer:
-      'No. You remain the primary account holder with full access. We work as a support layer—managing communications and operations on your behalf, but you always have complete visibility and control.',
+      "No. You remain the primary account holder with full access. We work as a support layer—managing communications and operations on your behalf, but you always have complete visibility and control.",
   },
   {
-    question: 'How do you charge for your services?',
+    question: "How do you charge for your services?",
     answer:
       "We can work on two models, whichever suits you better: 1. Revenue-based model – We take an agreed percentage from the monthly Airbnb earnings. 2. Flat fee model – PKR 20,000 per month covering complete management end-to-end. Both options include full listing management, guest communication, pricing coordination, and operational support. You can choose the model you're more comfortable with and we'll proceed accordingly.",
   },
@@ -24,17 +24,17 @@ const faqs = [
       "We believe in earning your business monthly. No long-term contracts—if our partnership isn't working, you can step back at any time.",
   },
   {
-    question: 'Do you work with properties outside major cities?',
+    question: "Do you work with properties outside major cities?",
     answer:
       "Yes! We manage properties globally—from major cities to smaller towns and tourist destinations. Local market knowledge is one of our core strengths.",
   },
   {
-    question: 'How quickly will I see improvements?',
+    question: "How quickly will I see improvements?",
     answer:
-      'Most hosts see noticeable improvements within 30-45 days—better search visibility, increased inquiries, and higher booking rates. Long-term growth continues as we optimize based on performance data.',
+      "Most hosts see noticeable improvements within 30-45 days—better search visibility, increased inquiries, and higher booking rates. Long-term growth continues as we optimize based on performance data.",
   },
   {
-    question: 'Can I still manage some aspects myself?',
+    question: "Can I still manage some aspects myself?",
     answer:
       "Absolutely. We're flexible and can adjust our involvement based on what you prefer to handle versus what you'd like us to manage.",
   },
@@ -44,7 +44,7 @@ export const FAQSection = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -54,7 +54,7 @@ export const FAQSection = () => {
       <div className="absolute inset-0">
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       </div>
-      
+
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -70,13 +70,18 @@ export const FAQSection = () => {
                 </span>
               </div>
               <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
-                Common{' '}
+                Common{" "}
                 <span className="italic text-gradient-gold">Questions</span>
               </h2>
             </div>
 
             {/* Accordion */}
-            <Accordion type="single" collapsible defaultValue="item-0" className="space-y-4">
+            <Accordion
+              type="single"
+              collapsible
+              defaultValue="item-0"
+              className="space-y-4"
+            >
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
@@ -99,7 +104,7 @@ export const FAQSection = () => {
             <div className="relative">
               {/* Decorative Frame */}
               <div className="absolute -inset-3 border border-primary/10" />
-              
+
               <div className="relative glass border-gold-glow p-10 lg:p-12 space-y-8">
                 {/* Icon */}
                 <div className="w-16 h-16 bg-primary flex items-center justify-center">
@@ -112,20 +117,21 @@ export const FAQSection = () => {
                     Still have questions?
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    We're happy to discuss your specific situation and answer any questions about our services.
+                    We're happy to discuss your specific situation and answer
+                    any questions about our services.
                   </p>
                 </div>
 
                 {/* CTAs */}
                 <div className="space-y-4">
-                  <Button
+                  {/* <Button
                     variant="luxury"
                     size="lg"
                     className="w-full"
                     onClick={() => scrollToSection('#contact')}
                   >
                     <span className="uppercase tracking-widest text-sm">Schedule a Call</span>
-                  </Button>
+                  </Button> */}
                   <Button
                     variant="luxury-outline"
                     size="lg"
@@ -137,7 +143,9 @@ export const FAQSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <span className="uppercase tracking-widest text-sm">WhatsApp Chat</span>
+                      <span className="uppercase tracking-widest text-sm">
+                        WhatsApp Chat
+                      </span>
                     </a>
                   </Button>
                 </div>
@@ -145,7 +153,7 @@ export const FAQSection = () => {
                 {/* Available Hours */}
                 <div className="pt-6 border-t border-border/50 text-center">
                   <span className="text-sm text-muted-foreground">
-                    Monday - Saturday, 9 AM - 8 PM
+                    Monday - Saturday, 9 AM - 11 PM
                   </span>
                 </div>
 

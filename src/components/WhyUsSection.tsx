@@ -9,9 +9,9 @@ const differentiators = [
   },
   {
     icon: MapPin,
-    title: "Local Market Expertise",
+    title: "Global Market Expertise",
     description:
-      "Deep understanding of Pakistan's Airbnb market and guest expectations.",
+      "Deep understanding of Airbnb markets accross the globe and guest expectations.",
   },
   {
     icon: Handshake,

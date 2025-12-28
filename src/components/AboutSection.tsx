@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import founderImg from "@/assets/Saad.png";
 import coFounderImg from "@/assets/qadeer.jpeg";
 
@@ -9,12 +9,14 @@ const teamMembers = [
     role: "Founder & CEO",
     image: founderImg,
     bio: "Started Continental Luxe Hosting after seeing too many great properties struggle with visibility—not because hosts weren't capable, but because Airbnb success requires constant attention most people don't have time for.",
+    contactUrl: "https://www.linkedin.com/in/saad-akhtar-bnb/",
   },
   {
     name: "M. Qadeer",
     role: "Co-Founder & CTO",
     image: coFounderImg,
     bio: "With years of experience in the global short-term rental market, ensuring seamless technical operations and exceptional guest experiences across all properties we manage.",
+    contactUrl: "https://www.linkedin.com/in/muhammad-qadeerr/",
   },
 ];
 
@@ -75,22 +77,24 @@ export const AboutSection = () => {
                     <p className="text-primary text-sm uppercase tracking-wider mb-3">
                       {member.role}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {member.bio}
                     </p>
                   </div>
 
-                  <Button
-                    variant="luxury"
-                    size="default"
+                  <a
+                    href={member.contactUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full"
-                    onClick={() => scrollToSection("#contact")}
                   >
-                    <Phone className="w-4 h-4 mr-2" />
-                    <span className="uppercase tracking-widest text-xs">
-                      Get in Touch
-                    </span>
-                  </Button>
+                    <Button variant="luxury" size="default" className="w-full">
+                      <Linkedin className="w-4 h-4 mr-1" />
+                      <span className="uppercase tracking-widest text-xs">
+                        Get in Touch
+                      </span>
+                    </Button>
+                  </a>
                 </div>
               </div>
 
