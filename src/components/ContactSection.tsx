@@ -62,14 +62,15 @@ export const ContactSection = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
 
     const templateParams = {
+      to_email: "support@continentalluxehosting.com",
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       location: formData.location,
       contact_method: formData.contactMethod,
       challenge: formData.challenge,
-      reply_to: "muhammadqadeerr456@gmail.com",
-      cc: "saadakhtar141@gmail.com",
+      from_email: "support@continentalluxehosting.com",
+      reply_to: "support@continentalluxehosting.com",
     };
 
     try {
@@ -283,14 +284,14 @@ export const ContactSection = () => {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "muhammadqadeerr456@gmail.com",
-                    href: "mailto:muhammadqadeerr456@gmail.com",
+                    value: "support@continentalluxehosting.com",
+                    href: "mailto:support@continentalluxehosting.com",
                   },
                   {
                     icon: Phone,
                     label: "Phone",
                     value: "+92 303 577 6759",
-                    href: "tel:+12345678900",
+                    href: "tel:+923035776759",
                   },
                   {
                     icon: MessageCircle,
