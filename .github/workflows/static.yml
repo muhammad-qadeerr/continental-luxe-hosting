@@ -38,6 +38,9 @@ jobs:
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
         run: npm run build
 
+      - name: Disable Jekyll
+        run: echo "" > dist/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
