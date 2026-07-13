@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Sparkles } from 'lucide-react';
 import heroImage from '@/assets/hero-property.jpg';
+import { BOOKING_URL } from '@/lib/booking';
 
 const valuePoints = [
   'Higher Occupancy Rates',
@@ -98,10 +99,12 @@ export const HeroSection = () => {
                 variant="luxury"
                 size="lg"
                 className="group"
-                onClick={() => scrollToSection('#contact')}
+                asChild
               >
-                <span className="uppercase tracking-widest text-sm">Get Free Review</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                  <span className="uppercase tracking-widest text-sm">Get Free Review</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                </a>
               </Button>
               <Button
                 variant="luxury-outline"

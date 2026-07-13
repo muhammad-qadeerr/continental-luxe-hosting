@@ -1,16 +1,17 @@
-import { ArrowUp, Linkedin, Instagram } from "lucide-react";
+import { CalendarCheck, Linkedin, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { BOOKING_URL } from "@/lib/booking";
 
 const quickLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#approach" },
-  { label: "Results", href: "#results" },
+  { label: "Case Studies", href: "#results" },
+  { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const Footer = () => {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const scrollToSection = (href: string) =>
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
 
@@ -43,8 +44,13 @@ export const Footer = () => {
                 },
                 {
                   Icon: Instagram,
-                  href: "https://www.instagram.com/continental_luxe_hosting/",
+                  href: "https://www.instagram.com/continentalluxehosting",
                   label: "Instagram",
+                },
+                {
+                  Icon: Facebook,
+                  href: "https://www.facebook.com/continentalluxehosting",
+                  label: "Facebook",
                 },
               ].map((s, i) => (
                 <a
@@ -96,10 +102,10 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+923001234567"
+                  href="tel:+923708919799"
                   className="hover:text-primary transition-colors"
                 >
-                  +92 303 577 6759
+                  +92 370 8919799
                 </a>
               </li>
             </ul>
@@ -111,13 +117,16 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center shadow-gold hover:shadow-gold-intense hover:-translate-y-1 transition-all z-50"
-        aria-label="Scroll to top"
+      <a
+        href={BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 flex items-center gap-2 px-6 h-12 rounded-full bg-primary text-primary-foreground text-sm font-medium uppercase tracking-widest shadow-gold hover:shadow-gold-intense hover:-translate-y-1 transition-all z-50"
+        aria-label="Book a meeting"
       >
-        <ArrowUp className="w-5 h-5" />
-      </button>
+        <CalendarCheck className="w-5 h-5" />
+        <span>Book a Meeting</span>
+      </a>
     </footer>
   );
 };

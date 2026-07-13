@@ -1,5 +1,6 @@
 import { ClipboardList, Handshake, Puzzle, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BOOKING_URL } from '@/lib/booking';
 
 const steps = [
   {
@@ -33,13 +34,6 @@ const steps = [
 ];
 
 export const ProcessSection = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="approach" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
@@ -123,9 +117,11 @@ export const ProcessSection = () => {
           <Button
             variant="luxury"
             size="lg"
-            onClick={() => scrollToSection('#contact')}
+            asChild
           >
-            <span className="uppercase tracking-widest text-sm">Start Your Free Review</span>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              <span className="uppercase tracking-widest text-sm">Start Your Free Review</span>
+            </a>
           </Button>
         </div>
       </div>

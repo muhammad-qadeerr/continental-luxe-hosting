@@ -94,8 +94,8 @@ export const ContactSection = () => {
       });
 
       toast({
-        title: "Request Submitted!",
-        description: "We'll review your listing within 24 hours.",
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
       });
     } catch (err: any) {
       console.error("EmailJS error:", err);
@@ -124,7 +124,7 @@ export const ContactSection = () => {
               Thank You!
             </h2>
             <p className="text-muted-foreground text-lg">
-              We'll review your listing within 24 hours.
+              We'll get back to you within 24 hours.
             </p>
           </div>
         </div>
@@ -147,11 +147,11 @@ export const ContactSection = () => {
             <div className="w-12 h-px bg-primary" />
           </div>
           <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
-            Free{" "}
-            <span className="italic text-gradient-gold">Listing Review</span>
+            Get In{" "}
+            <span className="italic text-gradient-gold">Touch</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            No commitment—we'll share improvements you can implement right away.
+            Have a question or ready to get started? Send us a message and we'll respond shortly.
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export const ContactSection = () => {
               ) : (
                 <>
                   <span className="uppercase tracking-widest">
-                    Get Free Review
+                    Send Message
                   </span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </>
@@ -290,14 +290,14 @@ export const ContactSection = () => {
                   {
                     icon: Phone,
                     label: "Phone",
-                    value: "+92 303 577 6759",
-                    href: "tel:+923035776759",
+                    value: "+92 370 8919799",
+                    href: "tel:+923708919799",
                   },
                   {
                     icon: MessageCircle,
                     label: "WhatsApp",
                     value: "Chat Now",
-                    href: "https://wa.me/923035776759",
+                    href: "https://wa.me/923708919799",
                     isButton: true,
                   },
                   { icon: Clock, label: "Hours", value: "Mon-Sat, 9AM-11PM" },

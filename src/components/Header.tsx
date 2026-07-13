@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import { Menu, X } from "lucide-react";
+import { BOOKING_URL } from "@/lib/booking";
 
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
   { label: "Process", href: "#approach" },
-  { label: "Results", href: "#results" },
+  { label: "Case Studies", href: "#results" },
+  { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -89,10 +91,12 @@ export const Header = () => {
           <Button
             variant="gold-outline"
             size="default"
-            onClick={() => scrollToSection("#contact")}
+            asChild
             className="uppercase tracking-widest text-xs"
           >
-            Free Review
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              Free Review
+            </a>
           </Button>
         </div>
 
@@ -132,9 +136,11 @@ export const Header = () => {
             size="lg"
             className="mt-4 animate-fade-up uppercase tracking-widest"
             style={{ animationDelay: "0.3s" }}
-            onClick={() => scrollToSection("#contact")}
+            asChild
           >
-            Get Free Review
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              Get Free Review
+            </a>
           </Button>
         </nav>
       </div>

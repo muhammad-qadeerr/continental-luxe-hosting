@@ -139,7 +139,7 @@ export const FAQSection = () => {
                     asChild
                   >
                     <a
-                      href="https://wa.me/923035776759"
+                      href="https://wa.me/923708919799"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
